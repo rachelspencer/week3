@@ -377,7 +377,7 @@ console.log(chocFrogPurchaseCalc(hermionesGold, 'Hermione'));
 console.log(chocFrogPurchaseCalc(ronsGold, 'Ron'));
 
 ////////////////// PROBLEM 21 ////////////////////
-let sampleArray = [0,1,2,3,4,5,7,6,8,9]
+let sampleArray = [0,1,2,3,4,5,6,7,8,9]
 /*
   Write a function that takes in an array of numbers as an argument. In the body of the function, write logic to determine if the array is in ascending order. The function should return true, if it is sorted in ascending order, false if it is not. Create a variable, `arrayIsAscending` and set it equal to your function invoked. Use the sample array to test this function.
 */
@@ -385,25 +385,44 @@ let sampleArray = [0,1,2,3,4,5,7,6,8,9]
 // CODE HERE
 
 // Other Test Cases
+const sampleArrayTwo = [0,1,2,3,4,5,6,7,9,8] // false
 const arrEmpty = []; // true
 const arrWithSingleZero = [0] // true
 const arrWithTwoNumbers = [2, 1] // false
 const arrWithTwoNumbersReversed = [...arrWithTwoNumbers].reverse(); // true
 const arrWithNegativeNumber = [-1, 0] // true
 const arrWithNegativeNumberReversed = [...arrWithNegativeNumber].reverse(); // false
+const arrWithRepeatNumbersDesc = [7, 7, 7, 6, 5] // false
+const arrWithRepeatNumbersAsc = [7, 7, 7, 8, 9] // true
 
 const checksAscendingOrder = (arr) => {
-  for (i = 0; i < arr.length; i++){
-    if (arr[i] < arr[i + 1]){
-    return 'decending';
-    } else {
-      return 'ascending';
+  for (let i = 0; i < arr.length; i++){
+    if (arr[i] > arr[i + 1]){
+      return false;
     }
   }
+  return true;
 };
 
-arrayIsAccending = checksAscendingOrder(arrWithTwoNumbers);
-console.log(arrayIsAccending);
+// const checksAscendingOrder = (arr) => {
+//   let i = 0;
+//     if (arr[i] < arr[i + 1]){
+//       return true;
+//     }
+//   return false;
+// };
+
+console.log('should be true: ', checksAscendingOrder(sampleArray));
+console.log('should be false: ', checksAscendingOrder(sampleArrayTwo));
+console.log('should be true: ', checksAscendingOrder(arrEmpty));
+console.log('should be true: ', checksAscendingOrder(arrWithSingleZero));
+console.log('should be false: ', checksAscendingOrder(arrWithTwoNumbers));
+console.log('should be true: ', checksAscendingOrder(arrWithTwoNumbersReversed));
+console.log('should be true: ', checksAscendingOrder(arrWithNegativeNumber));
+console.log('should be false: ', checksAscendingOrder(arrWithNegativeNumberReversed));
+console.log('should be false: ', checksAscendingOrder(arrWithRepeatNumbersDesc));
+console.log('should be true: ', checksAscendingOrder(arrWithRepeatNumbersAsc));
+
 
 ////////////////// PROBLEM 22 ////////////////////
 
@@ -427,13 +446,13 @@ function pond() {
 */
 
 //This array should contain the variable names (as strings) accessible in the global scope.
-let globalScope = []
+let globalScope = ['duck']
 
 //This array should contain the variable names (as strings) accessible in the bathroom function.
-let bathroomScope = []
+let bathroomScope = ['rubberDuck']
 
 //This array should contain the variable names (as strings) accessible in the bathtub function.
-let bathtubScope = []
+let bathtubScope = ['sailorDuck']
 
 //This array should contain the variable names (as strings) accessible in the pond function.
-let pondScope = []
+let pondScope = ['realDuck']
