@@ -71,7 +71,7 @@ const compareNums = (num1, num2) => {
   if (num1 > num2){
     return num1;
   } else {
-    return  num1, num2;
+    return  num1, num2; //be careful about using commas in your return statement. You can get some werid behavior, i.e "The comma operator ( , ) evaluates each of its operands (from left to right) and returns the value of the last operand." if you have return num2, num1.  It would alwasy return num1 and not num2.  Also for the else statement you could have just written `return num2` because you know if num1 is not bigger than num2.  Num2 must be bigger or the same as num1. --Nathan
   }
 }
  console.log(compareNums(12, 8));
@@ -229,7 +229,7 @@ printAllNames(namesArr);
 //CODE HERE
 const thatsOdd = (num) => {
   if (num % 2 ===0){
-    return 'That\'s not odd!';
+    return 'That\'s not odd!';  // if you use backtick or double quotes you wouldn't need to escape the '.  i.e. `That's not odd!` or "That's not odd!" --Nathan
   } else {
     return 'Thats is odd indeed!';
   }
@@ -357,7 +357,7 @@ console.log(buyChocFrogs(4))
 
 //CODE HERE
 const chocFrogPurchaseCalc = (gold, name) => {
-  let chocFrogPrice = 3;
+  let chocFrogPrice = 3;  //Good job not having a magic number --Nathan
   if (gold % chocFrogPrice === 0){
     let numOfFrogs = gold / chocFrogPrice;
     return `${name} can buy ${numOfFrogs} chocolate frogs.`;
@@ -368,6 +368,8 @@ const chocFrogPurchaseCalc = (gold, name) => {
     return `${name} can buy ${numOfFrogs} chocolate frogs and has ${modulo} pieces of gold left.`;
   }
 } 
+//Great job.  There is a method called Math.floor() that might interest you --Nathan
+
 let harrysGold = 14859385923
 let hermionesGold = 2834
 let ronsGold = 8
@@ -394,6 +396,8 @@ const arrWithNegativeNumber = [-1, 0] // true
 const arrWithNegativeNumberReversed = [...arrWithNegativeNumber].reverse(); // false
 const arrWithRepeatNumbersDesc = [7, 7, 7, 6, 5] // false
 const arrWithRepeatNumbersAsc = [7, 7, 7, 8, 9] // true
+
+//This is great.  QA will love it when you have multiple test cases --Nathan
 
 const checksAscendingOrder = (arr) => {
   for (let i = 0; i < arr.length; i++){
