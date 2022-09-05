@@ -26,7 +26,7 @@ console.log('should be false: ', twoNumbersAddToZero(easyTestFalse));
 console.log('should be true: ', twoNumbersAddToZero(easyTestTrue));
 console.log('should be true: ', twoNumbersAddToZero(negativeNumberArray));
 console.log('should be true: ', twoNumbersAddToZero(zeroNumberArray));
-console.log('should be false: ', twoNumbersAddToZero(noAdditionsEqualTwo)); a
+console.log('should be false: ', twoNumbersAddToZero(noAdditionsEqualTwo));
 
 //Devmountain solution
 // let value = false;
