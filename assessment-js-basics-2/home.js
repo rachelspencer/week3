@@ -22,10 +22,10 @@
 */
 
 //CODE HERE
+const greetUser = (username) => `Welcome back, ${username}.`
 
-
-
-
+let myUserName = 'Misty';
+console.log(greetUser(myUserName));
 
 //////////////////PROBLEM 2////////////////////
 /* 
@@ -49,10 +49,44 @@
 
 const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 
-//CODE HERE
+/* CODE HERE
+    Using for loop:
+    const canWeDeliver = (zipcode) => {
+        for (i = 0; i < deliveryAreaZipCodes.length; i++ ) {
+            if (deliveryAreaZipCodes[i] === zipcode) {
+                return `You're in our delivery zone!`;
+            }
+        }
+        return `Sorry, we can't deliver to that address.`;
+    };
+*/
 
+/* Using higher order method:
+    const canWeDeliver = (zipcode) => {
+        if (deliveryAreaZipCodes.includes(zipcode)) {
+            return `You're in our delivery zone!`;
+        } else {
+            return `Sorry, we can't deliver to that address.`;
+        }
+    };
+*/
 
+// Using ternary operator
+    const canWeDeliver = (zipcode) => deliveryAreaZipCodes.includes(zipcode) ? `You're in our delivery zone!`: `Sorry, we can't deliver to that address.`;
+           
+const ZipcodeTest1 = 85205;
+const ZipcodeTest2 = 85204;
+const ZipcodeTest3 = 85203;
+const ZipcodeTest4 = 85213;
+const ZipcodeTest5 = 85206;
+const ZipcodeTestFalse = 33139;
 
+console.log('True: ', canWeDeliver(ZipcodeTest1));
+console.log('True: ', canWeDeliver(ZipcodeTest2));
+console.log('True: ', canWeDeliver(ZipcodeTest3));
+console.log('True: ', canWeDeliver(ZipcodeTest4));
+console.log('True: ', canWeDeliver(ZipcodeTest5));
+console.log('False: ', canWeDeliver(ZipcodeTestFalse));
 /* 
     Problem 2 Continued
 
@@ -71,8 +105,28 @@ const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 */
 
 // CODE HERE
+const deliveryAreaZipCodesMiami = [33137, 33138, 33139, 33140, 33141]
+const canWeDeliverMiami = (zipcode) => {
+    if (deliveryAreaZipCodesMiami.some((zipVal) => zipcode === zipVal)) {
+        return `You're in our delivery zone!`;
+    } else {
+        return `Sorry, we can't deliver to that address.`;
+    }
+};
 
+const miamiZipcodeTest1 = 33137;
+const miamiZipcodeTest2 = 33138;
+const miamiZipcodeTest3 = 33139;
+const miamiZipcodeTest4 = 33140;
+const miamiZipcodeTest5 = 33141;
+const miamiZipcodeTestFalse = 33101;
 
+console.log('True: ', canWeDeliverMiami(miamiZipcodeTest1));
+console.log('True: ', canWeDeliverMiami(miamiZipcodeTest2));
+console.log('True: ', canWeDeliverMiami(miamiZipcodeTest3));
+console.log('True: ', canWeDeliverMiami(miamiZipcodeTest4));
+console.log('True: ', canWeDeliverMiami(miamiZipcodeTest5));
+console.log('False: ', canWeDeliverMiami(miamiZipcodeTestFalse));
 //////////////////PROBLEM 3////////////////////
 /* 
     Below is an array of objects that have some
@@ -107,8 +161,8 @@ const deals = [
 */
 
 //CODE HERE
-
-
+deals[0].title = deals[0].title.replace('15', '10');
+console.log('Deal 10% off: ', deals[0]);  
 
 /*
     The restaurant is going to continue its
@@ -124,3 +178,5 @@ const deals = [
 */
 
 //CODE HERE
+deals[1].desc = deals[1].desc.replace('March', 'April').trim();
+console.log('April deal: ', deals[1]);  

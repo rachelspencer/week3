@@ -31,8 +31,14 @@
 */
 
 //CODE HERE
-
-
+const pizza = {
+    name:'Pepperoni',
+    price: 15,
+    category: 'entree',
+    popularity: 3,
+    rating: 7,
+    tags: ['spicy', 'contains meat', 'traditional'],
+};
 
 //////////////////PROBLEM 2////////////////////
 /* 
@@ -43,7 +49,7 @@
 */
 
 //CODE HERE
-
+console.log('Pepperoni pizza popularity: ', pizza.popularity);
 
 /*
     Second, log the second tag in your pizza's
@@ -53,7 +59,7 @@
 */
 
 //CODE HERE
-
+console.log('Pepperoni second element tag: ', pizza.tags[1]);
 
 /*
     Third, destructure the price off of the
@@ -63,7 +69,8 @@
 */
 
 //CODE HERE
-
+const { price } = pizza;
+console.log('Pepperoni pizza price: ', price);
 
 /*
     Fourth, and last, destructure the category
@@ -73,7 +80,8 @@
 */
 
 //CODE HERE
-
+const { category } = pizza;
+console.log('Pepperoni category: ', category);
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -88,8 +96,40 @@
 */
 
 //CODE HERE
-
-
+const foodArr = [
+    {
+        name:'Supreme',
+        price: 15,
+        category: 'entree',
+        popularity: 1,
+        rating: 9,
+        tags: ['contains meat', 'traditional'],
+    },
+    {
+        name:'Margherita',
+        price: 12,
+        category: 'entree',
+        popularity: 2,
+        rating: 8,
+        tags: ['vegetarian', 'traditional'],
+    },
+    {
+        name:'Pepperoni',
+        price: 13,
+        category: 'entree',
+        popularity: 3,
+        rating: 7,
+        tags: ['spicy', 'contains meat', 'traditional'],
+    },
+    {
+        name:'Neapolitan',
+        price: 12,
+        category: 'entree',
+        popularity: 4,
+        rating: 6,
+        tags: ['vegetarian', 'traditional'],
+    },
+];
 
 //////////////////PROBLEM 4////////////////////
 /* 
@@ -104,9 +144,8 @@
 */
 
 //CODE HERE
-
-// const filteredFood = foodArr.filter(/* CALLBACK HERE */)
-
+const filteredFood = foodArr.filter((pizza) => pizza.tags.includes('spicy'));
+console.log('Filtered food: ', filteredFood);
 
 
 //////////////////PROBLEM 5////////////////////
@@ -141,7 +180,7 @@
         if it is, return objects whose value for the given
         property is greater than the `number` passed in
 
-        If the type isn't `below`, return objects whose
+        If the type is `below`, return objects whose
         value for the given property is less than the 
         `number` passed in
     
@@ -149,7 +188,16 @@
 */
 
 //CODE HERE
+const filterByProperty = (property, number, type) => {
+    let filteredArr; 
+    if (type === 'above'){
+        return foodArr.filter((pizza) => pizza[property] > number);
+    }
 
+    if (type === 'below'){
+        return foodArr.filter((pizza) => pizza[property] < number);
+    }
+};
 
 /*
     Invoke the `filterByProperty` function passing
@@ -159,3 +207,5 @@
 */
 
 //CODE HERE
+const priceAbove12test = filterByProperty('price', 12, 'above');
+console.log('Pizzas above $12: ', priceAbove12test);

@@ -35,8 +35,11 @@ const cart = [
 
 //CODE HERE
 
-// const summedPrice = cart.reduce(/* CALLBACK HERE */)
+const summedPrice = cart.reduce((total, curr) => {
+    return total + curr.price
+}, 0);  
 
+console.log('summedPrice: ', summedPrice);
 
 //////////////////PROBLEM 2////////////////////
 /*  
@@ -54,6 +57,8 @@ const cart = [
 */
 
 //CODE HERE
+const calcFinalPrice = (cartTotal, couponValue, tax) => ((cartTotal * tax) + cartTotal) - couponValue;
+console.log('Calc final price: ', calcFinalPrice(20, 5, .06));
 
 
 
@@ -79,7 +84,13 @@ const cart = [
 
 /*
     TEXT ANSWER HERE
-
+    Customer Name property - so the restaurant knows the customer name, string
+    Custom phone - for contact purposes, integer
+    Customer Address - to deliver order to, string
+    Food Item ordered - lists the food ordered by customer, string
+    Quantity - list amount per item ordered, integar
+    Food Item Price - to use to calculate order total, integer
+    
 */
 
 /*
@@ -88,3 +99,13 @@ const cart = [
 */
 
 //CODE HERE
+const customer = {
+    customerName: 'Misty',
+    customerPhone: 3052283474,
+    customerAddress: '1 Cat Alley, Miami Beach Fl 33139',
+    foodItem: 'Salad',
+    qantity: 1,
+    foodItemPrice: 7.99,
+};
+
+console.log('test', customer.customerName)
